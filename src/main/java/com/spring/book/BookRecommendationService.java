@@ -1,24 +1,17 @@
 package com.spring.book;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.stereotype.Service;
 
-/*
-2.1.1 BookRecommendationService as a Spring service
- */
+@Service
 class BookRecommendationService {
     private final ChatClient chatClient;
 
-    public BookRecommendationService() {
-        /*
-         2.1.2 Initialize `this.chatClient`
-         */
-        this.chatClient = null;
+    public BookRecommendationService(ChatClient.Builder builder) {
+        this.chatClient = builder.build();
     }
 
     public String findMostPopularProgrammingBooks() {
-        /*
-         2.1.3 Complete the method `findMostPopularProgrammingBooks` to ask for the 5 best programming books in 2023.
-         */
-        return null;
+        return this.chatClient.prompt().user("5 best programming books in year 2023").call().content();
     }
 }
