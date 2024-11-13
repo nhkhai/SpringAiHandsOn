@@ -87,7 +87,7 @@ Run `BookRecommendationServiceTest`. If you are able to see the response in the 
 ### 3. Logs, Entities, and Images
 
 #### 3.1 Using logs to understand API calls
-If you did not complete the section 2, please checkout the branch : `To update`
+If you did not complete the section 2, please checkout the branch : `solution_2.1`
 - Enable a `SimpleLoggerAdvisor` for `BookRecommendationService`.
   
   Inside [BookRecommendationService](src/main/java/com/spring/book/BookRecommendationService.java), update the call to the builder so it declares a `SimpleLoggerAdvisor`. 
@@ -99,11 +99,11 @@ If you did not complete the section 2, please checkout the branch : `To update`
   What was the default [temperature](https://www.iguazio.com/glossary/llm-temperature/) ?
 
 #### 3.2 Structured Output
-If you did not complete the section 3.1, please checkout the branch : `To update`
+If you did not complete the section 3.1, please checkout the branch : `solution_3.1`
 - Inside the package `com.spring.book`, create a new Java record called Book. It should have 2 attributes: author and title.
 - Inside [BookRecommendationService](src/main/java/com/spring/book/BookRecommendationService.java), add a method called `findFictionBook`. It should use a ChatClient instance in order to ask for the best fiction book in year 2023 and return the response as a Book entity.
 - Inside BookRecommendationServiceTest, add a method `shouldFindFictionBook`. It should call BookRecommendationService.findFictionBook(), log the result, and assert that the result is not empty.
-- Run `BookRecommendationServiceTest` and double-check that the request to OpenAI provides JSON Schema guidelines.
+- Run `BookRecommendationServiceTest` and double-check that the request to OpenAI provides JSON Schema guidelines. (Uncomment the @Configuration in [HttpLoggingConfiguration](src/main/java/com/spring/config/HttpLoggingConfiguration.java))
 
   (For the online IDE execute in the shell `mvn -Dtest=BookRecommendationServiceTest#shouldFindFictionBook test` )
 
@@ -112,7 +112,7 @@ If you are able to see the response in the logs, you have successfully mapped yo
 
 
 #### 3.3 What’s the Weather Like? (Image Model API)
-If you did not complete the section 3.2, please checkout the branch : `To update`
+If you did not complete the section 3.2, please checkout the branch : `solution_3.2`
 
 Inside the folder src/main/resources, you have a folder [weather](src/main/resources/weather), check the lab file [singapore-weather.png](src/main/resources/weather/singapore-weather.png).
 - Create a new java package `com.spring.weather`. Inside this package, create a class called `WeatherService`. As seen in the slides, it should load [singapore-weather.png](src/main/resources/weather/singapore-weather.png) as a `org.springframework.core.io.Resource` and use it to make a call to the LLM. The question should be "what will be the weather like on Tuesday"
@@ -125,22 +125,12 @@ Inside the folder src/main/resources, you have a folder [weather](src/main/resou
 
 If you are able to call `WeatherService` successfully and get the correct weather forecast, you have completed this lab, congratulations!
 
-### 4. (BONUS) Retrieval Augmented Generation 
+### 4. (BONUS) Retrieval Augmented Generation / Vector DB
 
-#### 4.1 Browsing through a text document
+Congratulation ! The handsOn is now over. If you want more, here is a new challenge :
+- Checkout the project : https://github.com/michaelisvy/demo-spring-ai/
+- Read the ReadMe instruction and try to run one of the following : `MusicWithContextService`, `BookSearchService`
 
-If you did not complete the section 3.3, please checkout the branch : `To update`
-
-In this lab, we are going to provide some structured data to the prompt, so its responses will be customised based on the entry data.
-
-- Inside the folder src/main/resources, check the folder [olympics](src/main/resources/olympics)
-- Inside the folder src/main/java, in the package com.spring.olympics, create a class called `OlympicService`. As seen in the slides, it should load template.st as a Resource and use context.txt as the input data.
-- Inside `OlympicService`, create a method `findOlympicsSports`. It should parse the contextResource attribute and store it in a variable called context. It should then ask the following question to the LLM: "How many sports are being included in the 2024 Summer Olympics?"
-- When done, create a test class called `com.spring.olympics.OlympicsServiceTest`. If you are able to call `OlympicService` successfully, you have been able to use RAG with Spring AI.
-
-(For the online IDE execute in the shell `mvn -Dtest=OlympicsServiceTest test` )
-
-If you did not complete the section 4.1, please checkout the branch : `To update`
 
 
 
