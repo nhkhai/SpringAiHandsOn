@@ -15,4 +15,8 @@ class BookRecommendationService {
     public String findMostPopularProgrammingBooks() {
         return this.chatClient.prompt().user("5 best programming books in year 2023").call().content();
     }
+
+    public Book findFictionBook() {
+        return this.chatClient.prompt().user("what is the most popular fiction book in 2023?").call().entity(Book.class);
+    }
 }

@@ -3,6 +3,7 @@ package com.spring.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 /**
  * This class has been imported from Craig Wall's LoggingInterceptor: https://github.com/habuma/logging-interceptor
  */
-//@Configuration
+@Configuration
 public class HttpLoggingConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(HttpLoggingConfiguration.class);
 

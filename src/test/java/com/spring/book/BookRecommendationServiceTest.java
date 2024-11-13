@@ -22,4 +22,11 @@ class BookRecommendationServiceTest {
         assertThat(response).isNotEmpty();
     }
 
+    @Test
+    void shouldFindFictionBook() {
+        var book = this.bookRecommendationService.findFictionBook();
+        assertThat(book.author()).isNotEmpty();
+        logger.info("author: {}, title: {}", book.author(), book.title());
+    }
+
 }
