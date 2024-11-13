@@ -1,6 +1,7 @@
 package com.spring.book;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -8,7 +9,7 @@ class BookRecommendationService {
     private final ChatClient chatClient;
 
     public BookRecommendationService(ChatClient.Builder builder) {
-        this.chatClient = builder.build();
+        this.chatClient = builder.defaultAdvisors(new SimpleLoggerAdvisor()).build();
     }
 
     public String findMostPopularProgrammingBooks() {
