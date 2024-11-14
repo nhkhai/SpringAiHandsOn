@@ -11,6 +11,7 @@ class BookRecommendationServiceTest {
     /*
     2.1.1 Inject BookRecommendationService as a Spring service
     */
+    @Autowired
     private BookRecommendationService bookRecommendationService;
 
     private static final Logger logger = LoggerFactory.getLogger(BookRecommendationServiceTest.class);
@@ -20,5 +21,7 @@ class BookRecommendationServiceTest {
        /*
          2.3 Update a JUnit test BookRecommendationServiceTest and verify that the API key works by logging the response.
         */
+        var response = this.bookRecommendationService.findMostPopularProgrammingBooks();
+        logger.info("Response: {}", response);
     }
 }

@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringAiHandsOn" type="Application" factoryName="Application">
+    <envs>
+      <env name="OPENAI_API_KEY" value="" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.spring.Application" />
+    <module name="spring-ai-lab-06-solution" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
